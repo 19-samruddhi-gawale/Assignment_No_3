@@ -1,0 +1,202 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Result Management System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="header">
+    <div class="brand">
+        <div class="logo">SR</div>
+        <div>
+            <h1>Student Results</h1>
+            <p>Result Management System</p>
+        </div>
+    </div>
+    <span class="status">● System Active</span>
+</header>
+
+<main class="container">
+
+    <section class="welcome">
+        <div>
+            <p class="eyebrow">ACADEMIC DASHBOARD</p>
+            <h2>Student Result Management</h2>
+            <p>Manage student marks, track performance and find your class topper.</p>
+        </div>
+        <div class="welcome-icon">🎓</div>
+    </section>
+
+    <section class="stats">
+        <div class="stat-card">
+            <div class="stat-icon green">👥</div>
+            <p>Total Students</p>
+            <h2 id="studentCount">0</h2>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-icon blue">📊</div>
+            <p>Class Average</p>
+            <h2 id="classAverage">0.00%</h2>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-icon gold">🏆</div>
+            <p>Highest Percentage</p>
+            <h2 id="highestPercentage">0%</h2>
+        </div>
+    </section>
+
+    <section class="panel">
+        <div class="section-heading">
+            <h3>＋ Add Student Result</h3>
+            <p>Enter student information and marks below.</p>
+        </div>
+
+        <form id="resultForm">
+            <div class="form-grid">
+                <div class="field">
+                    <label for="name">Student Name</label>
+                    <input type="text" id="name"
+                           placeholder="Enter full name" required>
+                </div>
+
+                <div class="field">
+                    <label for="roll">Roll Number</label>
+                    <input type="text" id="roll"
+                           placeholder="Enter roll number" required>
+                </div>
+
+                <div class="field">
+                    <label for="department">Department</label>
+                    <select id="department" required>
+                        <option value="">Select department</option>
+                        <option>Computer Engineering</option>
+                        <option>Information Technology</option>
+                        <option>AI & Data Science</option>
+                        <option>Electronics Engineering</option>
+                        <option>Mechanical Engineering</option>
+                        <option>Civil Engineering</option>
+                    </select>
+                </div>
+            </div>
+
+            <h4 class="marks-title">
+                Subject Marks <span>(Out of 100 each)</span>
+            </h4>
+
+            <div class="marks-grid">
+                <div class="field">
+                    <label for="maths">Mathematics</label>
+                    <input type="number" id="maths" min="0" max="100"
+                           step="1" placeholder="0 - 100" required>
+                </div>
+
+                <div class="field">
+                    <label for="science">Science</label>
+                    <input type="number" id="science" min="0" max="100"
+                           step="1" placeholder="0 - 100" required>
+                </div>
+
+                <div class="field">
+                    <label for="english">English</label>
+                    <input type="number" id="english" min="0" max="100"
+                           step="1" placeholder="0 - 100" required>
+                </div>
+
+                <div class="field">
+                    <label for="computer">Computer</label>
+                    <input type="number" id="computer" min="0" max="100"
+                           step="1" placeholder="0 - 100" required>
+                </div>
+
+                <div class="field">
+                    <label for="social">Social Studies</label>
+                    <input type="number" id="social" min="0" max="100"
+                           step="1" placeholder="0 - 100" required>
+                </div>
+            </div>
+
+            <div class="form-actions">
+                <button type="reset" class="btn secondary">Clear Form</button>
+                <button type="submit" class="btn primary">＋ Add Result</button>
+            </div>
+        </form>
+    </section>
+
+    <section class="topper-card">
+        <div class="trophy">🏆</div>
+
+        <div class="topper-info">
+            <p class="eyebrow">CLASS TOPPER</p>
+            <h3 id="topperName">No results yet</h3>
+            <p id="topperDetails">
+                Add student results to identify the topper.
+            </p>
+        </div>
+
+        <div class="topper-score">
+            <span id="topperPercentage">--</span>
+            <small>Percentage</small>
+        </div>
+    </section>
+
+    <section class="panel records-panel">
+        <div class="section-heading records-heading">
+            <div>
+                <h3>Student Records</h3>
+                <p>All submitted student results appear here.</p>
+            </div>
+
+            <input type="search" id="searchInput"
+                   class="search-input"
+                   placeholder="Search students...">
+        </div>
+
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Roll No.</th>
+                        <th>Student Details</th>
+                        <th>Department</th>
+                        <th>Total / 500</th>
+                        <th>Percentage</th>
+                        <th>Result</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+
+                <tbody id="resultTable">
+                    <tr>
+                        <td colspan="7" class="empty">
+                            No student records found. Add your first student above.
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="table-footer">
+            <span id="recordCount">Showing 0 records</span>
+            <button id="clearAllBtn" class="btn danger" type="button">
+                Clear All Records
+            </button>
+        </div>
+    </section>
+
+    <footer>
+        Student Result Management System
+        <span>•</span>
+        Built with HTML, CSS & JavaScript
+    </footer>
+
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
